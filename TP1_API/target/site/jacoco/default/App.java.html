@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TP1</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">import java.util.List;
+
+<span class="nc" id="L3">public class App {</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L6">        Zoo zoo = new Zoo();</span>
+        //Secteur scChien = new Secteur(TypeAnimal.CHIEN);
+        //Secteur scChat = new Secteur(TypeAnimal.CHAT);
+<span class="nc" id="L9">        zoo.ajouterSecteurs(TypeAnimal.CHIEN);</span>
+<span class="nc" id="L10">        zoo.ajouterSecteurs(TypeAnimal.CHAT);</span>
+
+        //List&lt;Animal&gt; aniChien = (List&lt;Animal&gt;) new Animal(&quot;AniChien&quot;);
+        //List&lt;Animal&gt; aniChat = (List&lt;Animal&gt;) new Animal(&quot;aniChat&quot;);
+
+<span class="nc" id="L15">        Chien chien1 = new Chien(&quot;Toto&quot;);</span>
+<span class="nc" id="L16">        Chien chien2 = new Chien(&quot;Titi&quot;);</span>
+<span class="nc" id="L17">        Chien chien3 = new Chien(&quot;Lulu&quot;);</span>
+<span class="nc" id="L18">        Chien chien4 = new Chien(&quot;Bobo&quot;);</span>
+<span class="nc" id="L19">        Chat chat1 = new Chat(&quot;Meomeo&quot;);</span>
+<span class="nc" id="L20">        Chat chat2 = new Chat(&quot;Chien&quot;);</span>
+<span class="nc" id="L21">        Chat chat3 = new Chat(&quot;Chat&quot;);</span>
+<span class="nc" id="L22">        Rat rat1 = new Rat(&quot;Hamster&quot;);</span>
+
+        try {
+<span class="nc" id="L25">            zoo.nouvelAnimal(chien2);</span>
+<span class="nc" id="L26">            zoo.nouvelAnimal(chien1);</span>
+<span class="nc" id="L27">            zoo.nouvelAnimal(chien3);</span>
+<span class="nc" id="L28">            zoo.nouvelAnimal(chien4);</span>
+<span class="nc" id="L29">            zoo.nouvelAnimal(chat1);</span>
+<span class="nc" id="L30">            zoo.nouvelAnimal(chat2);</span>
+<span class="nc" id="L31">            zoo.nouvelAnimal(chat3);</span>
+<span class="nc" id="L32">            zoo.nouvelAnimal(rat1);</span>
+<span class="nc" id="L33">            System.out.println(zoo.nombreAnimal());</span>
+<span class="nc" id="L34">        } catch (AnimalDansMauvaisSecteurException e) {</span>
+<span class="nc" id="L35">            e.printStackTrace();</span>
+<span class="nc" id="L36">        }</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (int i = 0; i &lt;= 16; i++) {</span>
+            try {
+<span class="nc" id="L39">                zoo.nouveauVisiteurs();</span>
+                //System.out.println(zoo.getLimiteVisiteurs());
+<span class="nc" id="L41">            } catch (LimiteVisiteurException e) {</span>
+<span class="nc" id="L42">                e.printStackTrace();</span>
+<span class="nc" id="L43">            }</span>
+            /**try {
+                System.out.println(zoo.getLimiteVisiteurs());
+            } catch (LimiteVisiteurException e) {
+                e.printStackTrace();
+            }**/
+        }
+
+
+
+
+
+
+
+<span class="nc" id="L57">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
