@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/cssandjs.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- faire une navbar
+  <div class="topnav" >
+    <a th:href="@{greeting}">Greeting</a>
+    <a th:href="@{addresses}">Address</a>
+  </div> -->
+<div th:replace="fragment/my-template" ></div>
+<h1>Say hello to everyone</h1>
+
+<div style="padding-left:16px">
+    <p th:text="'Bonjour ' + ${nomTemplate} + ' !'" />
+</div>
+
+</body>
+</html>

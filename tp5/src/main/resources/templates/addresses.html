@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Adresses</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <link th:href="@{/css/cssandjs.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+ <!-- faire une navbar
+  <div class="topnav" >
+    <a th:href="@{greeting}">Greeting</a>
+    <a th:href="@{addresses}">Address</a>
+  </div>-->
+ <div th:replace="fragment/my-template" ></div>
+  <h1>Les differentes adresses </h1>
+  <!-- <ul th:each="address: ${allAddresses}">
+    <li th:text="${address.content}" />
+  </ul> -->
+
+  <div style="padding-left:16px">
+    <table border="1px #48dbfb">
+      <thead>
+      <tr>
+        <th>Addresse</th>
+        <th>Acteur</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="address: ${allAddresses}">
+        <td><span th:text="${address.content}"> Addresse </span></td>
+        <td><span th:text="${address.acteur}"> Acteur </span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</body>
+</html>
+
+

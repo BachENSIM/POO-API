@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Météo</title>
+    <link th:href="@{/css/cssandjs.css}" rel="stylesheet" type="text/css"/>
+
+
+    <script th:inline="javascript">
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            /*const uluru = { lat: 45.782282, lng: 3.858024 };*/
+            const uluru = { lat:  [[${latitude}]], lng: [[${longtitude}]] };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+    </script>
+
+</head>
+<body>
+<div th:replace="fragment/my-template" ></div>
+    <!--<div style="padding-left: 30px;">
+        &lt;!&ndash;<h1 th:text= "'Listes des coordonees de :' + ${addr}"></h1>&ndash;&gt;
+        &lt;!&ndash;<h1 th:text="${addr}"></h1>&ndash;&gt;
+        <h1 th:text=" 'Your address : ' + ${nameAddr}" />
+        <h4>Listes des coordonees</h4>
+        <ul th:each="feature : ${featureList.features}">
+            <li th:each="geo : ${feature.geometry}">
+                <p th:text="${geo}"></p>
+            </li>
+        </ul>
+    </div>-->
+    <div class="box">
+        <div id="rightbox">
+            <!--The div element for the map -->
+            <div id="map" style=" height: 300px;width: 80%;"> </div>
+            <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+            <script th:inline="javascript"
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF-XslJLge0TPSDW1azX6y8PsOgwjYIdg&callback=initMap&libraries=&v=weekly"
+                    async
+            ></script>
+        </div >
+        <div id="leftbox">
+            <h3 th:text="${nameAddress}" ></h3>
+            <h4 th:text="${codePostal} + ' ' + ${nameCity}" ></h4>
+            <br>
+            <p th:text="'Date : ' + ${date} "></p>
+            <p th:text="'Température minimale : ' +  ${tmin} + '°C'"></p>
+            <p th:text="'Température maximale : ' +  ${tmax} + '°C'"></p>
+            <p th:text="'Probabilité de pluie ' +  ${pRain} + '%'"></p>
+            <p th:text="'Ensoleillement en  ' +  ${sHours} + ' heures'"></p>
+
+
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>
